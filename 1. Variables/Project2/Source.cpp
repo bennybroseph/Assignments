@@ -97,7 +97,8 @@ int main()
 	float f = 0;
 	char ch = 'a';
 	std::cin >> i >> ch >> f;
-	std::cout << "i: " << i << "\nch: " << ch << "\nf: " << f << std::endl;
+	std::cout << "i: " << i << "\nch: " << ch << "\nf: " << f << std::endl;
+
 	std::cout << std::endl << std::endl;
 	system("pause");
 
