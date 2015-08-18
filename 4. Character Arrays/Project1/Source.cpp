@@ -2,75 +2,75 @@
 
 int main()
 {
-	////1
-	//std::cout << "Exercise 1" << std::endl;
-	//std::cout << "----------" << std::endl << std::endl;
+	//1
+	std::cout << "Exercise 1" << std::endl;
+	std::cout << "----------" << std::endl << std::endl;
 
-	//char name[256], first [256], last [256];
+	char name[256], first [256], last [256];
 
-	//std::cout << "Please enter your first and last name: ";
-	//std::cin >> first; std::cin >> last;
+	std::cout << "Please enter your first and last name: ";
+	std::cin >> first; std::cin >> last;
 
-	//strcat_s(first, " "); // adds a space to the end of first name
-	//strcat_s(first, last); //adds last name to first name
-	//strcpy_s(name, first); //copies first to name, which will now include the full name
+	strcat_s(first, " "); // adds a space to the end of first name
+	strcat_s(first, last); //adds last name to first name
+	strcpy_s(name, first); //copies first to name, which will now include the full name
 
-	//std::cout << std::endl << std::endl;
-	//system("pause");
+	std::cout << std::endl << std::endl;
+	system("pause");
 
-	////2
-	//system("cls");
-	//std::cout << "Exercise 2" << std::endl;
-	//std::cout << "----------" << std::endl << std::endl;
+	//2
+	system("cls");
+	std::cout << "Exercise 2" << std::endl;
+	std::cout << "----------" << std::endl << std::endl;
 
 	int i;
 
-	//for (i = strlen(name)-1; i >= 0; i--)
-	//{
-	//	std::cout << name[i];
-	//}
+	for (i = strlen(name)-1; i >= 0; i--)
+	{
+		std::cout << name[i];
+	}
 
-	//std::cout << std::endl << std::endl;
-	//system("pause");
+	std::cout << std::endl << std::endl;
+	system("pause");
 
-	////3
-	//system("cls");
-	//std::cout << "Exercise 3" << std::endl;
-	//std::cout << "----------" << std::endl << std::endl;
+	//3
+	system("cls");
+	std::cout << "Exercise 3" << std::endl;
+	std::cout << "----------" << std::endl << std::endl;
 
-	//char name_2D[5][256];
-	//int f;
+	char name_2D[5][256];
+	int f;
 
-	//for (i = 0; i < 5; i++)
-	//{
-	//	std::cout << i << ". " << "Please enter your first and last name: ";
-	//	std::cin >> first; std::cin >> last;
+	for (i = 0; i < 5; i++)
+	{
+		std::cout << i << ". " << "Please enter your first and last name: ";
+		std::cin >> first; std::cin >> last;
 
-	//	strcat_s(first, " "); // adds a space to the end of first name
-	//	strcat_s(first, last); //adds last name to first name
-	//	strcpy_s(name_2D[i], first); //copies first to name, which will now include the full name
-	//}
+		strcat_s(first, " "); // adds a space to the end of first name
+		strcat_s(first, last); //adds last name to first name
+		strcpy_s(name_2D[i], first); //copies first to name, which will now include the full name
+	}
 
-	//for (i = 0; i < 5; i++)
-	//{
-	//	for (f = strlen(name_2D[i])-1; f >= 0; f--)
-	//	{
-	//		std::cout << name_2D[i][f];
-	//	}
-	//}
+	for (i = 0; i < 5; i++)
+	{
+		for (f = strlen(name_2D[i])-1; f >= 0; f--)
+		{
+			std::cout << name_2D[i][f];
+		}
+	}
 
-	//std::cout << std::endl << std::endl;
-	//system("pause");
+	std::cout << std::endl << std::endl;
+	system("pause");
 
-	////4
-	//system("cls");
-	//std::cout << "Exercise 4" << std::endl;
-	//std::cout << "----------" << std::endl << std::endl;
+	//4
+	system("cls");
+	std::cout << "Exercise 4" << std::endl;
+	std::cout << "----------" << std::endl << std::endl;
 
-	//std::cout << (char)7;
+	std::cout << (char)7;
 
-	//std::cout << std::endl << std::endl;
-	//system("pause");
+	std::cout << std::endl << std::endl;
+	system("pause");
 
 	//5
 	system("cls");
@@ -140,6 +140,51 @@ int main()
 	//6
 	system("cls");
 	std::cout << "Exercise 6" << std::endl;
+	std::cout << "----------" << std::endl << std::endl;
+
+	char username[256], identifier[256];
+	bool run = true;
+
+	while (run)
+	{
+		std::cout << "Please enter your username: ";
+		std::cin >> username;
+
+		if (strstr(username, "usr") != 0)
+			run = false;
+		else
+			std::cout << "Nice try, that's not a valid username. Must contain 'usr'." << std::endl;
+	}
+
+	std::cout << "Thank you for your cooperation..." << std::endl;
+
+	run = true;
+	while (run)
+	{
+		std::cout << "Please enter your password: ";
+		std::cin >> password;
+
+		if (strcmp(password, "Pa55w0rd") == 0)
+			run = false;
+		else
+			std::cout << "Nice try, that's not a valid password." << std::endl;
+	}
+
+	std::cout << "Thank you for your cooperation...";
+
+	strcat_s(username, "-"); // adds a '-' to the end of first name
+	strcat_s(username, password); //adds last name to first name
+	strcpy_s(identifier, username); //copies first to name, which will now include the full name
+
+	std::cout << std::endl << std::endl;
+	std::cout << "Your identifier is: " << identifier;
+
+	std::cout << std::endl << std::endl;
+	system("pause");
+
+	//7
+	system("cls");
+	std::cout << "Exercise 7" << std::endl;
 	std::cout << "----------" << std::endl << std::endl;
 
 
