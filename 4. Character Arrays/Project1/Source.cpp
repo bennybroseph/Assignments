@@ -188,4 +188,7 @@ int main()
 	std::cout << "----------" << std::endl << std::endl;
 
 
+
+	std::cout << std::endl << std::endl;
+	system("pause");
 }
