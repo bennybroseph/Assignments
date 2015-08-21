@@ -187,7 +187,45 @@ int main()
 	std::cout << "Exercise 7" << std::endl;
 	std::cout << "----------" << std::endl << std::endl;
 
+	std::cout << "a. char name[4] = \"John\";" << std::endl << "   Is attempting to declare char \'name\' with 4 elements and set it to \"John\"." << std::endl << std::endl;
+	std::cout << "   It should be written as \'char name[4] = {\"J\", \"o\", \"h\", \"n\"};\' instead.\n   Or as strcpy_s(name, \"John\");" << std::endl << std::endl;
 
+	std::cout << "b. char name[32];\n   cout << name;" << std::endl << "   Is attempting to declare char \'name\' with 32 elements and output it." << std::endl << std::endl;
+	std::cout << "   This won't work as \'name\' has no value.\n   The array needs to have values put in each element first" << std::endl << std::endl;
+
+	std::cout << "c. char name[7] = \"Donald\";\n   char surname[7] = \"Knuth\"\n   strcat(name, surname);\n" << "   Is attempting to declare 'name' with 7 elements and set it to \"Donald\"\n"
+		      << "   It then declares 'surname' with 7 elements and set it to \"Knuth\"\n" << "   Finally, it tries to add both character arrays together" << std::endl << std::endl;
+	std::cout << "   It has the same issue as 'a.' and should be resolved the same way.\n   Also it should be written strcat_s(name, surname);" << std::endl << std::endl;
+
+	std::cout << "d. char errorMsg[5] = \"Stop\";\n   errorMsg[strlen(errorMsg)] = \"!\";\n   cout << errorMsg;\n" << "   Is attempting to declare 'errorMsg' with 5 elements and set it to \"Stop\"\n"
+		      << "   It then tries to add an \"!\" to the end and output it." << std::endl << std::endl;
+	std::cout << "   The only issue is the same one from 'a.' and 'c.'.\n   The program will run as expected otherwise.";
+
+	std::cout << std::endl << std::endl;
+	system("pause");
+
+	//8
+	system("cls");
+	std::cout << "Exercise 8" << std::endl;
+	std::cout << "----------" << std::endl << std::endl;
+
+	char input[256];
+	int i;
+
+	std::cout << "Enter a single word: ";
+	std::cin >> input;
+
+	char hold = input[0];
+	for (i = 0; i < strlen(input) - 1; i++)
+	{
+		input[i] = input[i+1];
+	}
+	input[i] = hold;
+	input[i + 1] = 'a';
+	input[i + 2] = 'y';
+	input[i + 3] = 0;
+
+	std::cout << std::endl << "That's " << input << " in pig latin.";
 
 	std::cout << std::endl << std::endl;
 	system("pause");
