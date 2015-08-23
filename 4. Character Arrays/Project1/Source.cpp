@@ -3,6 +3,7 @@
 int main()
 {
 	//1
+	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 	std::cout << "Exercise 1" << std::endl;
 	std::cout << "----------" << std::endl << std::endl;
 
@@ -19,6 +20,7 @@ int main()
 	system("pause");
 
 	//2
+	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 	system("cls");
 	std::cout << "Exercise 2" << std::endl;
 	std::cout << "----------" << std::endl << std::endl;
@@ -34,6 +36,7 @@ int main()
 	system("pause");
 
 	//3
+	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 	system("cls");
 	std::cout << "Exercise 3" << std::endl;
 	std::cout << "----------" << std::endl << std::endl;
@@ -43,7 +46,7 @@ int main()
 
 	for (i = 0; i < 5; i++)
 	{
-		std::cout << i << ". " << "Please enter your first and last name: ";
+		std::cout << i+1 << ". " << "Please enter your first and last name: ";
 		std::cin >> first; std::cin >> last;
 
 		strcat_s(first, " "); // adds a space to the end of first name
@@ -63,6 +66,7 @@ int main()
 	system("pause");
 
 	//4
+	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 	system("cls");
 	std::cout << "Exercise 4" << std::endl;
 	std::cout << "----------" << std::endl << std::endl;
@@ -73,6 +77,7 @@ int main()
 	system("pause");
 
 	//5
+	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 	system("cls");
 	std::cout << "Exercise 5" << std::endl;
 	std::cout << "----------" << std::endl << std::endl;
@@ -138,6 +143,7 @@ int main()
 	system("pause");
 
 	//6
+	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 	system("cls");
 	std::cout << "Exercise 6" << std::endl;
 	std::cout << "----------" << std::endl << std::endl;
@@ -183,6 +189,7 @@ int main()
 	system("pause");
 
 	//7
+	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 	system("cls");
 	std::cout << "Exercise 7" << std::endl;
 	std::cout << "----------" << std::endl << std::endl;
@@ -205,12 +212,12 @@ int main()
 	system("pause");
 
 	//8
+	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
 	system("cls");
 	std::cout << "Exercise 8" << std::endl;
 	std::cout << "----------" << std::endl << std::endl;
 
 	char input[256];
-	int i;
 
 	std::cout << "Enter a single word: ";
 	std::cin >> input;
@@ -226,6 +233,272 @@ int main()
 	input[i + 3] = 0;
 
 	std::cout << std::endl << "That's " << input << " in pig latin.";
+
+	std::cout << std::endl << std::endl;
+	system("pause");
+
+	//9
+	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+	system("cls");
+	std::cout << "Exercise 9" << std::endl;
+	std::cout << "----------" << std::endl << std::endl;
+
+	int words = 1, letters;
+
+	std::cout << "Enter multiple words: ";
+	std::cin.getline(input, 256);
+	
+	letters = strlen(input);
+	for (i = 0; i < strlen(input); i++)
+	{
+		if (input[i] == ' ')
+		{
+			words += 1;
+			letters -= 1;
+		}
+	}
+	std::cout << "There are " << words << " words in the input given." << std::endl 
+		      << "There are " << letters << " letters in the input given.";
+
+	std::cout << std::endl << std::endl;
+	system("pause");
+
+	//10
+	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+	system("cls");
+	std::cout << "Exercise 10" << std::endl;
+	std::cout << "-----------" << std::endl << std::endl;
+
+	char pal[256];
+	int j = 0;
+	bool is_pal = true;
+
+	std::cout << "Enter what you think is a palindrome: ";
+	std::cin >> input;
+
+	for (i = strlen(input)-1; i >= 0; i--)
+	{
+		pal[j] = input[i];
+		j++;
+	}
+	pal[j] = 0;
+
+	for (i = 0; i < strlen(input); i++)
+	{
+		if (input[i] != pal[i])
+		{
+			is_pal = false;
+			std::cout << "This is not a palindrome...";
+			break;
+		}
+	}
+	if (is_pal)
+		std::cout << "This is indeed a palindrome.";
+		
+	std::cout << std::endl << std::endl;
+	system("pause");
+
+	//11
+	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+	system("cls");
+	std::cout << "Exercise 11" << std::endl;
+	std::cout << "-----------" << std::endl << std::endl;
+
+	char string[256] = { 'A', ' ', 's' , 't', 'r', 'i', 'n', 'g', 0 };
+	char str_cmp[256] = { 'A', ' ', 's' , 't', 'r', 'i', 'n', 'g', 0 };
+	char str_cat[256] = { ' ', 'p', 'l', 'u','s',' ','m','o','r','e', 0 };
+	char str_cpy[256];
+
+	bool same = true;
+
+	for (i = 0; i < sizeof(string); i++)
+	{
+		if (string[i] == 0)
+		{
+			std::cout << "'strlen(string)' would return " << i << std::endl;
+			length = i;
+			break;
+		}
+	}
+	for (i = 0; i < length; i++)
+	{
+		str_cpy[i] = string[i];
+
+		if (string[i] != str_cmp[i])
+			same = false;
+	}
+	str_cpy[i] = 0;
+	if (same)
+		std::cout << "The two strings are equal." << std::endl;
+	else
+		std::cout << "The two strings are not the same" << std::endl;
+
+	for (i = 0; str_cat[i] != 0; i++)
+	{
+		string[i + length] = str_cat[i];
+	}	
+
+	std::cout << "Adding the two string together gets you '" << string << "'" << std::endl;
+	std::cout << "A copy of the string was stored as '" << str_cpy << "'";
+
+	std::cout << std::endl << std::endl;
+	system("pause");
+
+	//12
+	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+	system("cls");
+	std::cout << "Exercise 12" << std::endl;
+	std::cout << "-----------" << std::endl << std::endl;
+
+	int counter[256];
+	char sub = 0;
+	int high = 0;
+	for (i = 0; i < 256; i++)
+	{
+		counter[i] = 0;
+	}
+
+	std::cout << "Enter multiple words: ";
+	std::cin.getline(input, 256);
+
+	for (i = 0; i < strlen(input); i++)
+	{
+		counter[(int)input[i]] += 1;
+	}
+	for (i = 0; i < 256; i++)
+	{
+		if (counter[i] > high)
+		{
+			high = counter[i];
+			sub = i;
+		}
+	}
+	std::cout << "The character appearing the most is '" << sub << "'";
+
+	std::cout << std::endl << std::endl;
+	system("pause");
+
+	//13
+	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+	system("cls");
+	std::cout << "Exercise 13" << std::endl;
+	std::cout << "-----------" << std::endl << std::endl;
+
+	int day, month, year;
+
+	std::cout << "Please enter the date in format 'dd/mm/yyyy': ";
+	std::cin.getline(input, 256);
+
+	day = 10 * (input[0] - 48) + (input[1] - 48);
+	month = 10 * (input[3] - 48) + (input[4] - 48);
+	year = (1000 * (input[6] - 48)) + (100 * (input[7] - 48)) + (10 * (input[8] - 48)) + (input[9] - 48);
+
+	switch (month)
+	{
+	case 1:
+		std::cout << "January ";
+		break;
+	case 2:
+		std::cout << "February ";
+		break;
+	case 3:
+		std::cout << "March ";
+		break;
+	case 4:
+		std::cout << "April ";
+		break;
+	case 5:
+		std::cout << "May ";
+		break;
+	case 6:
+		std::cout << "June ";
+		break;
+	case 7:
+		std::cout << "July ";
+		break;
+	case 8:
+		std::cout << "August ";
+		break;
+	case 9:
+		std::cout << "September ";
+		break;
+	case 10:
+		std::cout << "October ";
+		break;
+	case 11:
+		std::cout << "November ";
+		break;
+	case 12:
+		std::cout << "December ";
+		break;
+	}
+	std::cout << day << ", " << year;
+
+	std::cout << std::endl << std::endl;
+	system("pause");
+
+	//14
+	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+	system("cls");
+	std::cout << "Exercise 14" << std::endl;
+	std::cout << "-----------" << std::endl << std::endl;
+
+	char removed[256];
+	int space[128];
+	int k = 0;
+
+	std::cout << "Enter a line of text with spaces: ";
+	std::cin.getline(input,256);
+
+	j = 0;
+	for (i = 0; i < strlen(input); i++)
+	{
+		if (input[i] == ' ')
+		{
+			space[j] = i;
+			j++;
+		}
+	}
+	j = 0;
+	for (i = 0; i < strlen(input); i++)
+	{
+		if (i != space[j])
+		{
+			removed[k] = input[i];
+			k++;
+		}
+		else
+			j++;
+	}
+	removed[k] = 0;
+	std::cout << std::endl << "Spaces have been removed: '" << removed << "'";
+
+	std::cout << std::endl << std::endl;
+	system("pause");
+
+	//15
+	//-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------//
+	system("cls");
+	std::cout << "Exercise 15" << std::endl;
+	std::cout << "-----------" << std::endl << std::endl;
+
+	std::cout << "Enter a string to encode: ";
+	std::cin.getline(input, 256);
+
+	for (i = 0; i < 256; i++)
+	{
+		if (input[i] == 0)
+		{
+			length = i;
+			break;
+		}
+	}
+	for (i = 0; i < length; i++)
+	{
+		input[i] += 5;
+	}
+
+	std::cout << "The encoded string is now: " << input;
 
 	std::cout << std::endl << std::endl;
 	system("pause");
