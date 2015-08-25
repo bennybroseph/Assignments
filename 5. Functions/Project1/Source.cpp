@@ -48,6 +48,12 @@ int Power(int, int);
 void Exercise16();
 void LookandSay(int*, int);
 
+void Exercise17();
+int ComputerTurn();
+int PlayerTurn();
+bool PlayAgain();
+bool Evaluate(int, int);
+
 void New(int);
 void End();
 
@@ -55,7 +61,7 @@ int main()
 {
 	srand(time(NULL));
 
-	/*New(1);
+	New(1);
 	Exercise1();
 	End();
 
@@ -109,11 +115,11 @@ int main()
 
 	New(14);
 	Exercise14();
-	End()
+	End();
 
 	New(15);
 	Exercise15();
-	End();*/
+	End();
 
 	New(16);
 	Exercise16();
@@ -490,9 +496,102 @@ void LookandSay(int* p_array, int size)
 
 void Exercise17()
 {
-
+	int comp, player;
+	while (true)
+	{
+		std::cout << "You're playing rock, paper, scissors with the computer.\nPlease type either rock, paper, or scissors to start and good luck! ";
+		player = PlayerTurn();
+		comp = ComputerTurn();
+		if (Evaluate(player, comp))
+			break;
+		else
+		{
+			system("cls");
+			New(17);
+		}
+	}
 }
+int PlayerTurn()
+{
+	char input[256];
 
+	std::cin >> input;
+
+	std::cout << std::endl << "You have chosen " << input << std::endl;
+
+	if (!strcmp(input, "rock"))
+		return 1;
+	else if (!strcmp(input, "paper"))
+		return 2;
+	else if (!strcmp(input, "scissors"))
+		return 3;
+	else
+	{
+		std::cout << std::endl << "Improper input. Please try again: ";
+		PlayerTurn();
+	}
+}
+int ComputerTurn()
+{
+	int comp = rand() % 3 + 1;
+
+	std::cout << "The computer has chosen ";
+	switch (comp)
+	{
+	case 1:
+		std::cout << "rock!";
+		break;
+	case 2:
+		std::cout << "paper!";
+		break;
+	case 3:
+		std::cout << "scissors!";
+		break;
+	default:
+		std::cout << "An error occured...";
+		break;
+	}
+
+	return comp;
+}
+bool PlayAgain()
+{
+	char input[256];
+
+	std::cout << "Would you like to play again? ";
+	std::cin >> input;
+
+	if (strcmp(input, "yes"))
+		return true;
+	else if (strcmp(input, "no"))
+		return false;
+	else
+	{
+		std::cout << std::endl << "Improper input. Please try again..." << std::endl;
+		PlayAgain();
+	}
+}
+bool Evaluate(int player, int comp)
+{
+	std::cout << std::endl << std::endl;
+
+	if (((player == 1) && (comp == 3)) || ((player == 2) && (comp == 1)) || ((player == 3) && (comp == 2)))
+	{
+		std::cout << "You won! ";
+		return PlayAgain();
+	}
+	else if (player == comp)
+	{
+		std::cout << "That's a tie. Do over!" << std::endl << std::endl;
+		system("pause");
+		return false;
+	}
+	else
+	{
+		std::cout << "You just lost a game of chance...";
+		return PlayAgain();
+	}
+}
 void New(int i)
 {
 	system("cls");
