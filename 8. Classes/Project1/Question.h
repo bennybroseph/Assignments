@@ -24,6 +24,7 @@ private:
 	};
 
 	std::vector<Question_Struct> Questions;
+	int scores[2];
 };
 
 #endif //QUESTION_H
