@@ -18,7 +18,7 @@ void Clear();
 
 int main()
 {
-	New("1");
+	/*New("1");
 	Exercise1();
 	End();
 
@@ -32,10 +32,14 @@ int main()
 
 	New("5");
 	Exercise5();
-	End();
+	End();*/
 
 	New("6");
 	Exercise6();
+	End();
+
+	New("7");
+	Exercise7();
 	End();
 
 	return 0;
@@ -46,7 +50,8 @@ void Exercise1()
 	char c = 'T', d = 'S';
 	char *p1 = &c;
 	char *p2 = &d;
-	char *p3;
+	char *p3;
+
 	p3 = &d;
 	std::cout << "*p3 = " << *p3 << std::endl; // (1)
 	p3 = p1;
@@ -104,37 +109,28 @@ void Exercise5()
 
 void Exercise6()
 {
-	RevString("One ring to rule them all");
+	char acTemp[] = "Hello World";
+	RevString(acTemp);
 
 	int aiTemp[4] = { 1, 3, 5, 2 };
 	CountEven(aiTemp, 4);
 
 	double adTemp[4] = { 1.2, 3.1, 2.7, 7.4 };
 	Maximum(adTemp, 4);
+
 	Contains("Look for 'f' please", 'f');
 }
 
 void RevString(char* a_szArray)
 {
-	int iSize = 0;
-
-	while (*(a_szArray + iSize + 1) != NULL)
-		++iSize;
-
-	if (iSize > 0)
+	for (int i = 0, j = strlen(a_szArray) - 1; i < strlen(a_szArray) / 2; ++i, --j) // Work from both sides of the array until you reach the middle
 	{
-		char acTemp[256];
-
-		for (int i = iSize; i >= 0; --i)
-		{
-			acTemp[iSize - i] = *(a_szArray + i);
-
-			if (i == 0)
-				acTemp[iSize + 1] = NULL;
-		}
-
-		std::cout << acTemp << std::endl;
+		char cTemp = a_szArray[i]; // create a temp variable to store the element
+		a_szArray[i] = a_szArray[j]; // Store the last element in the first index
+		a_szArray[j] = cTemp; // Store the first element in the last index
 	}
+
+	std::cout << a_szArray << std::endl; // Print it
 }
 int CountEven(int* a_piArray, int a_iSize)
 {
@@ -177,7 +173,7 @@ bool Contains(char* a_szArray, char a_cSearchValue)
 	}
 	else
 		std::cout << "Nowhere";
-		return false;
+	return false;
 }
 
 void Exercise7()
@@ -203,7 +199,8 @@ void Exercise7()
 	std::cout << *ptr_c << " " << *ptr_c << "\n";
 
 	delete ptr_a;
-	ptr_a = NULL;
+	ptr_a = NULL;
+
 }
 
 void New(char* a_szExercise)
