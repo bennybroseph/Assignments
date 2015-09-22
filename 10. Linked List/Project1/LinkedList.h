@@ -27,15 +27,17 @@ public:
 	// Adds a Node to the end
 	void AddtoQueue(const int ac_iData); 
 
+	void Insert(const int ac_iData, Node *a_previous, Node * a_next);
 	// Inserts a Node at the given 'ac_iIndex'
 	void Insert(const int ac_iData, const int ac_iIndex); 
+	
 	// Appends a Node after the given 'ac_pNode'
 	void Append(const int ac_iData, const Node &ac_pNode); 
 	// Swaps 'a_pNode1' and 'a_pNode2'
 	void Swap(Node &a_pNode1, Node &a_pNode2); 
 
 	// Clears out the list and makes it usable again	
-	void Delete(const Node &ac_pNode);
+	void Delete(Node &a_pNode);
 	// Deletes all Nodes in the list and then calls 'ReInitialize()'
 	void Clear();
 	// Sets up 'start' and 'end' to be used again and sets 'iSize' to 0
@@ -56,8 +58,6 @@ public:
 
 	LinkedList();
 	~LinkedList();
-
-
 };
 
 #endif // _LINKEDLIST_H_

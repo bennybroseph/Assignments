@@ -8,22 +8,19 @@ int main()
 {
 	LinkedList oList;
 	
-	for (int i = 0; i < 2; ++i)
+	for (int i = 0; i < 10; ++i)
 	{
 		oList.AddtoQueue(i);
 	}
+
 	//----------------------------------------------------------------------------------------
 	New("1a.");
 	std::cout << "The full list: " << std::endl;
 	oList.Print();
 
-	oList.Delete(oList.Begin()); oList.Print();
-	//std::cout << std::endl << "The value of the 5th element in the list is " << oList[5];
+	std::cout << std::endl << "The value of the 5th element in the list is " << oList[5];
 	End();
-	for (int i = 0; i < 10; ++i)
-	{
-		oList.AddtoQueue(i);
-	}
+
 	//----------------------------------------------------------------------------------------
 	New("1b.");
 	std::cout << "The full list: " << std::endl;
@@ -42,7 +39,7 @@ int main()
 	oList.Print();
 
 	std::cout << std::endl << "Adding 70 after the 7th node in the list: " << std::endl;
-	oList.Append(70, oList.Begin() + 6);
+	oList.Append(70, oList.Begin()+6);
 	oList.Print();
 	End();
 
