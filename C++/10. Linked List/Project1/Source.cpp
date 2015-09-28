@@ -6,9 +6,9 @@ void Clear();
 
 int main()
 {
-	LinkedList oList;
+	LinkedList<int> oList;
 	
-	for (int i = 0; i < 10; ++i)
+	for (float i = 0; i < 10; ++i)
 	{
 		oList.AddtoQueue(i);
 	}
@@ -39,7 +39,7 @@ int main()
 	oList.Print();
 
 	std::cout << std::endl << "Adding 70 after the 7th node in the list: " << std::endl;
-	oList.Append(70, oList.Begin()+6);
+	oList.Append(70, 6);
 	oList.Print();
 	End();
 
@@ -49,7 +49,7 @@ int main()
 	oList.Print();
 
 	std::cout << std::endl << "Deleting the last node in the list" << std::endl;
-	oList.Delete(oList.End());
+	oList.Delete(oList.Size() - 1);
 	oList.Print();
 	End();
 
@@ -74,7 +74,7 @@ int main()
 	oList.Print();
 
 	std::cout << std::endl << "Swapping the 2nd and 5th nodes: " << std::endl;
-	oList.Swap(oList.Begin() + 1, oList.Begin() + 4);
+	oList.Swap(1, 4);
 	oList.Print();
 	End();
 }
