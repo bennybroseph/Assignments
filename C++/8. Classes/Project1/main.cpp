@@ -11,10 +11,10 @@ void Exercise4();
 
 int main()
 {
-	Graphics::Init();
+	/*Graphics::Init();
 	srand(time(NULL));
 	
-	/*Graphics::New("1");
+	Graphics::New("1");
 	Date_Class Date;
 	Graphics::End();
 
@@ -26,12 +26,12 @@ int main()
 	Score_Class Score;
 	Graphics::End();*/
 
-	//Exercise4();
+	Exercise4();
 
-	Graphics::New("5");
+	/*Graphics::New("5");
 	Question_Class Trivia;
 	Trivia.Handle();
-	Graphics::End();
+	Graphics::End();*/
 
 	return 0;
 }
@@ -42,6 +42,7 @@ void Exercise4()
 	Zombies.push_back(Zombie_Class());
 	Zombies.push_back(Zombie_Class("BLARR"));
 	Zombies.push_back(Zombie_Class("HEHEHE"));
+	Zombies.push_back(Zombie_Class("JAAAAAAACK"));
 
 	int i, j, f = Zombies.size() - 1;
 

@@ -39,17 +39,14 @@ float Zombie_Class::GetHealth()
 {
 	return this->health;
 }
-
 int Zombie_Class::GetAttack()
 {
 	return this->attack;
 }
-
 int Zombie_Class::GetType()
 {
 	return this->type;
 }
-
 std::string Zombie_Class::GetName()
 {
 	return this->name;
