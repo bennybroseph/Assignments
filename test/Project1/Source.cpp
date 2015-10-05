@@ -10,4 +10,17 @@ int main()
 	sStack.Push(4);
 	sStack.Push(5);
 	sStack.Push(6);
+
+	sStack.Print();
+	system("pause");
+
+	sStack.Pop();
+
+	sStack.Print();
+	system("pause");
+
+	sStack.Peek();
+
+	std::cout << sStack.Empty() << std::endl;
+	system("pause");
 }
