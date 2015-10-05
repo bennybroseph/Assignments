@@ -17,6 +17,9 @@ int main()
 	sStack.Pop();
 
 	sStack.Print();
+
+	sStack.Pop();
+	sStack.Print();
 	system("pause");
 
 	sStack.Peek();
