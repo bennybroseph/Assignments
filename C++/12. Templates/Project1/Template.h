@@ -32,20 +32,17 @@ void Template<T>::Add(const T ac_NewVal)
 template <typename T>
 void Template<T>::Expand()
 {
-	T *Temp = new T[m_iMaxSize * 2];
+	T *Temp = new T[m_iMaxSize];
 
-	for (int i = 0; i < m_iCurrSize; ++i)
-	{
-		Temp[i] = m_Array[i];
-	}
-
-	delete[] m_Array;
+	memcpy(Temp, m_Array, m_iMaxSize * sizeof(T));
 
 	m_iMaxSize *= 2;
-	for (int i = 0; i < m_iCurrSize; ++i)
-	{
-		m_Array[i] = Temp[i];
-	}
+
+	delete[] m_Array;
+	m_Array = new T[m_iMaxSize];
+	
+
+	memcpy(m_Array, Temp, m_iMaxSize * sizeof(T));
 }
 template <typename T>
 int Template<T>::Size()
