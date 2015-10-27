@@ -1,10 +1,14 @@
 #include <iostream>
 
+#include "Vector3D.h"
+
 void Exercise1();
 void Exercise2();
 void Exercise3();
 void Exercise4();
 void Exercise5();
+void Exercise6();
+void Exercise7();
 
 void New(const char* a_szExercise);
 void End();
@@ -30,6 +34,14 @@ int main()
 
 	New("5");
 	Exercise5();
+	End();
+
+	New("6");
+	Exercise6();
+	End();
+
+	New("7");
+	Exercise7();
 	End();
 
 	return 0;
@@ -65,7 +77,24 @@ void Exercise4()
 
 void Exercise5()
 {
+	std::cout << "(-8, 0, -3) x (2, 2, 4) =        (6, 26, -16)" << std::endl;
+	std::cout << "(14, 5, -5) x (-2, 1, 43) =      (220, -612, -24)" << std::endl;
+	std::cout << "(0.45, 0.2, -0.69) x (0, 1, 0) = (0.69, 0, 0.45)";
+}
 
+void Exercise6()
+{
+	std::cout << "The two vectors are perpendicular because the dot product of them is 0.";
+}
+
+void Exercise7()
+{
+	Vector3D<float> Vec1(-8, 0, -3);
+	Vector3D<float> Vec2(2, 2, 4);
+
+	std::cout << Dot(Vec1, Vec2) << std::endl;
+	Cross(Vec1, Vec2).Print(); std::cout << std::endl;
+	std::cout << Angle(Vec1, Vec2);
 }
 
 void New(const char* ac_szExercise)
