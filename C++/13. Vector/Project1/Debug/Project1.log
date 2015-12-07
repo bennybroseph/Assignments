@@ -1,2 +1,21 @@
 ﻿  Source.cpp
+c:\users\benjamin.odom\desktop\homework\c++\13. vector\project1\vector4d.h(54): warning C4244: '=': conversion from 'unsigned int' to 'float', possible loss of data
+  c:\users\benjamin.odom\desktop\homework\c++\13. vector\project1\vector4d.h(53): note: while compiling class template member function 'Vector4D<float>::Vector4D(const unsigned int)'
+  c:\users\benjamin.odom\desktop\homework\c++\13. vector\project1\source.cpp(17): note: see reference to function template instantiation 'Vector4D<float>::Vector4D(const unsigned int)' being compiled
+  c:\users\benjamin.odom\desktop\homework\c++\13. vector\project1\source.cpp(17): note: see reference to class template instantiation 'Vector4D<float>' being compiled
+c:\users\benjamin.odom\desktop\homework\c++\13. vector\project1\vector4d.h(55): warning C4244: '=': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\benjamin.odom\desktop\homework\c++\13. vector\project1\vector4d.h(56): warning C4244: '=': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\benjamin.odom\desktop\homework\c++\13. vector\project1\vector4d.h(57): warning C4244: '=': conversion from 'unsigned int' to 'float', possible loss of data
+c:\users\benjamin.odom\desktop\homework\c++\13. vector\project1\maths.h(24): warning C4244: 'return': conversion from 'float' to 'const int', possible loss of data
+  c:\users\benjamin.odom\desktop\homework\c++\13. vector\project1\source.cpp(24): note: see reference to function template instantiation 'const T Maths::Lerp<int>(const T,const T,const float)' being compiled
+          with
+          [
+              T=int
+          ]
+c:\users\benjamin.odom\desktop\homework\c++\13. vector\project1\maths.h(30): warning C4244: 'return': conversion from 'double' to 'const float', possible loss of data
+  c:\users\benjamin.odom\desktop\homework\c++\13. vector\project1\source.cpp(26): note: see reference to function template instantiation 'const T Maths::ToRadians<float>(const T)' being compiled
+          with
+          [
+              T=float
+          ]
   Project1.vcxproj -> C:\Users\benjamin.odom\Desktop\Homework\C++\13. Vector\Debug\Project1.exe
