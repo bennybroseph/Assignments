@@ -20,7 +20,7 @@ class Vector3D:
 	
 	# Returns the normalized vector from the 'Vector3D'
 	def Normalize(self):
-		return self.X/self.Magnitude()
+		return self/self.Magnitude()
 	
 	# Overloaded '+' function
 	def __add__(self, other):

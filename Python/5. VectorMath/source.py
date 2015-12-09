@@ -11,6 +11,7 @@ def main():
 	B = Vector2D(3, 1)
 	
 	print("A =", A, "B =", B)
+	print()
 	print("Dot Product:", Dot(A, B))
 	print("Nomilization of A:", A.Normalize())
 	print("Cross Product:", Cross(A, B))
@@ -34,6 +35,7 @@ def main():
 	B = Vector3D(3, 1, 2)
 	
 	print("A =", A, "B =", B)
+	print()
 	print("Dot Product:", Dot(A, B))
 	print("Nomilization of A:", A.Normalize())
 	print("Cross Product:", Cross(A, B))
@@ -53,9 +55,10 @@ def main():
 	print("Vector4D")
 	print("----------------------------------------")
 	
-	A = Vector4D(5, 5, 5, 5)
+	A = Vector4D(15, 2, 8, 5)
 	
 	print("A =", A)
+	print()
 	print("Nomilization of A:", A.Normalize())
 	
 	Color = hex(0x34EA4AFF)
