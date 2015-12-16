@@ -22,9 +22,9 @@ class _Object:
 	def Update(self):
 		self.PrevPos = self.Pos
 		self.Pos = self.Pos + self.Velocity
-	
-		self.bbBoundingBox.Pos = self.Pos		
+		
 		self.bbBoundingBox.Update()
 	
 	def LateUpdate(self):
 		self.Image.move(self.Pos.X - self.PrevPos.X, self.Pos.Y - self.PrevPos.Y)
+		self.bbBoundingBox.LateUpdate(self.PrevPos, self.Pos)

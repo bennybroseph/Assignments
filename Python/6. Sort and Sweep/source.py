@@ -1,12 +1,7 @@
-from graphics import *
-
-from Maths import *
-from BoundingBox import *
+from Collision import *
 
 from Player import *
 from Enemy import *
-
-from os import system
 
 from timeit import default_timer as timer
 
@@ -24,31 +19,21 @@ ENEMY_MAX = WINDOW_SIZE - 50
 
 ENEMY_SIZE = PLAYER_SIZE
 
-NUM_ENEMIES = 15
+NUM_ENEMIES = 5
 		
 def Input():
-	key = oWindow.checkKey()
+	Key = oWindow.checkKey()
 	
-	if(key == 'w') or (key == 'Up'):
-		oPlayer.Velocity = Vector2D(0, -PLAYER_SPEED)
-	if(key == 's') or (key == 'Down'):
-		oPlayer.Velocity = Vector2D(0, PLAYER_SPEED)
-	if(key == 'a') or (key == 'Left'):
-		oPlayer.Velocity = Vector2D(-PLAYER_SPEED, 0)
-	if(key == 'd') or (key == 'Right'):
-		oPlayer.Velocity = Vector2D(PLAYER_SPEED, 0)
-	
-	if(key == 'Escape'):
+	if(Key == 'Escape'):
 		oWindow.close()
+		
+	oPlayer.ParseInput(Key)
 
 def Update():
 	oPlayer.Update()
 	
 	for i in range(0, NUM_ENEMIES):
 		oEnemies[i].Update()
-
-def CheckCollision():
-	dummy = 1
 		
 def LateUpdate():
 	oPlayer.LateUpdate()
@@ -57,6 +42,8 @@ def LateUpdate():
 		oEnemies[i].LateUpdate()
 
 def main():
+	seed()
+	
 	FPS = NULL
 	
 	fCurrentTime = timer()	
@@ -68,8 +55,16 @@ def main():
 		oEnemies[i].Image.draw(oWindow)
 			
 	oPlayer.Image.draw(oWindow)
+	
+	for i in range(0, len(oEnemies)):		
+		oEnemies[i].bbBoundingBox.Image.draw(oWindow)
+		oEnemies[i].bbBoundingBox.Tag = "Enemy "+str(i)
 		
-	while(True):
+	oPlayer.bbBoundingBox.Image.draw(oWindow)
+	oPlayer.bbBoundingBox.Tag = "Player"
+	
+	bbList = []
+	while(oWindow.isOpen()):
 		fCurrentTime = timer()
 
 		if(fCurrentTime - fPreviousTime >= 1):
@@ -83,9 +78,17 @@ def main():
 		Update()
 		LateUpdate()
 		
-		CheckCollision()
+		bbList = []
+		
+		bbList.append(oPlayer.bbBoundingBox)
+		for i in range(0, len(oEnemies)):
+			bbList.append(oEnemies[i].bbBoundingBox)
+		
+		CheckCollisions(bbList)
 		
 		LateUpdate()
+	
+	return 0
 
 oWindow = GraphWin("It's Time", WINDOW_SIZE.X, WINDOW_SIZE.Y)
 oWindow.setBackground("black")
@@ -97,7 +100,5 @@ oEnemies = []
 oTextFPS = Text(Point(WINDOW_SIZE.X/2, 10), 0)
 oTextFPS.draw(oWindow)
 oTextFPS.setTextColor("white")
-
-seed()
 
 main()
