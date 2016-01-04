@@ -22,12 +22,14 @@ class BoundingBox:
 		self.Image.setOutline("blue")
 		
 		self.Tag = ""
+		
+		self.Color = "blue"
 	
 	def __lt__(self, other):
 		return False
 		
 	def Update(self):		
-		self.Min = self.Pos - (self.Size/2)
+		self.Min = self.Pos #- (self.Size/2)
 		self.Max = self.Min + self.Size
 		
 	def LateUpdate(self, a_PrevPos, a_Pos):
@@ -35,3 +37,4 @@ class BoundingBox:
 		self.Pos = a_Pos
 		
 		self.Image.move(self.Pos.X - self.PrevPos.X, self.Pos.Y - self.PrevPos.Y)
+		self.Image.setFill(self.Color)

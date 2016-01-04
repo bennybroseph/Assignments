@@ -7,7 +7,7 @@ from EventHandler import _EventHandler
 
 from random import *
 
-PLAYER_SPEED = 0.5
+PLAYER_SPEED = 1
 
 class Player(_Object, _EventHandler):
 	def __init__(self, a_Pos, a_Size):

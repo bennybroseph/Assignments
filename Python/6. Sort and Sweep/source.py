@@ -19,7 +19,7 @@ ENEMY_MAX = WINDOW_SIZE - 50
 
 ENEMY_SIZE = PLAYER_SIZE
 
-NUM_ENEMIES = 5
+NUM_ENEMIES = 10
 		
 def Input():
 	Key = oWindow.checkKey()
@@ -64,6 +64,8 @@ def main():
 	oPlayer.bbBoundingBox.Tag = "Player"
 	
 	bbList = []
+	PrevCollisions = []
+	
 	while(oWindow.isOpen()):
 		fCurrentTime = timer()
 
@@ -76,15 +78,15 @@ def main():
 
 		Input()
 		Update()
-		LateUpdate()
 		
+		del bbList
 		bbList = []
 		
 		bbList.append(oPlayer.bbBoundingBox)
 		for i in range(0, len(oEnemies)):
 			bbList.append(oEnemies[i].bbBoundingBox)
 		
-		CheckCollisions(bbList)
+		PrevCollisions = CheckCollisions(bbList, PrevCollisions)
 		
 		LateUpdate()
 	
