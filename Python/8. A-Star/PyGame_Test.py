@@ -8,10 +8,12 @@ black = 0, 0, 0
 
 targetFPS = 120.0
 
-screen = pygame.display.set_mode(size)
+screen = pygame.display.set_mode(size, pygame.NOFRAME)
 pygame.display.update()
 pygame.display.set_caption("Pygame Test Program")
 isFullScreen = False
+
+clock = pygame.time.Clock()
 
 ball = pygame.image.load("ball.bmp")
 ballrect = ball.get_rect()
@@ -24,7 +26,7 @@ currentFrames = 0
 currentFPS = currentFrames
 timeSinceLastUpdate = 0
 
-myFont = pygame.font.Font("Pokemon_FireRed.ttf", 12)
+myFont = pygame.font.SysFont("Pokemon_FireRed.ttf", 20)
 
 while 1:
 	currentFrames += 1
@@ -41,7 +43,7 @@ while 1:
 			if event.key == pygame.K_ESCAPE:sys.exit()
 			if event.key == pygame.K_F10:
 				if(isFullScreen):
-					screen = pygame.display.set_mode(size)
+					screen = pygame.display.set_mode(size, pygame.NOFRAME)
 					isFullScreen = False
 				else:
 					screen = pygame.display.set_mode(size, pygame.FULLSCREEN)
@@ -60,7 +62,6 @@ while 1:
 		timeSinceLastUpdate = 0	
 	
 	fpsText = myFont.render("FPS: " + str(currentFPS), 0, (255, 255, 255))
-	fpsTextEraser = myFont.render("FPS: " + str(currentFPS), 0, (0, 0, 0))
 	
 	fpsTextRect = fpsText.get_rect()
 	fpsTextRect.move_ip(width / 2, 10)
@@ -71,7 +72,4 @@ while 1:
 	
 	pygame.display.flip()	
 	
-	#screen.blit(fpsTextEraser, (fpsTextRect.x - (fpsTextRect.width / 2), fpsTextRect.y - (fpsTextRect.height / 2)))
-	
-	if(deltaTime < (1000 / targetFPS) / 1000):
-		time.sleep((1000 / targetFPS) / 1000 - deltaTime)
+	clock.tick(60)
